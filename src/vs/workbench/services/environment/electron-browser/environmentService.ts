@@ -69,8 +69,9 @@ export class NativeWorkbenchEnvironmentService extends NativeEnvironmentService 
 	@memoize
 	get logExtensionHostCommunication(): boolean { return !!this.args.logExtensionHostCommunication; }
 
-	@memoize
+	// @memoize
 	get extensionEnabledProposedApi(): string[] | undefined {
+		console.log('getting extension proposed api... ', this.args['enable-proposed-api']);
 		if (Array.isArray(this.args['enable-proposed-api'])) {
 			return this.args['enable-proposed-api'];
 		}
