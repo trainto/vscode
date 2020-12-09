@@ -35,6 +35,11 @@ function code() {
 		return
 	fi
 
+	# Add wayland params if needed
+	if [[ "$OSTYPE" == "linux"* ]] && [[ "$*" == *"--wayland"* ]]; then
+		set -- "$@" "--enable-features=UseOzonePlatform" "--ozone-platform=wayland"
+	fi
+
 	# Configuration
 	export NODE_ENV=development
 	export VSCODE_DEV=1
